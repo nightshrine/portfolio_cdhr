@@ -39,12 +39,12 @@ export const DialogCloseTrigger = React.forwardRef<
   return (
     <ChakraDialog.CloseTrigger
       position="absolute"
-      top="2"
-      insetEnd="2"
+      top="0"
+      insetEnd="0"
       {...props}
       asChild
     >
-      <CloseButton size="2xl" ref={ref}>
+      <CloseButton size="md" ref={ref}>
         {props.children}
       </CloseButton>
     </ChakraDialog.CloseTrigger>

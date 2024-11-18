@@ -1,18 +1,24 @@
 export interface Master {
-    profile: Profile;
+    profile: ProfileContent[];
+    histories: History[];
     projects: Project[];
     companies: Company[];
 }
 
-export interface Profile {
+export interface ProfileContent {
     id: number;
-    name: string;
-    university: string;
-    career: string;
-    hobbies: string;
-    qiita_url: string;
-    github_url: string;
-    future_goal: string;
+    title: string;
+    type: string;
+    content: string;
+}
+
+export interface History {
+    id: number;
+    title: string;
+    start_date: string;
+    url: string | null;
+    display_name: string | null;
+    summary: string;
 }
 
 export interface Project {
@@ -24,14 +30,12 @@ export interface Project {
     references: ProjectReference[];
 }
 
-
 export interface ProjectReference {
     id: number;
     project_id: number;
     url: string;
     display_name: string;
 }
-
 
 export interface Company {
     id: number;

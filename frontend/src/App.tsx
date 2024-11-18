@@ -5,7 +5,7 @@ import Header from './components/header';
 import { useState } from 'react';
 import { Box } from '@chakra-ui/react';
 import Profile from './components/profile';
-import { COMPANY, PROFILE, PROJECT } from './constants/Contents';
+import { COMPANY, PROFILE, PROJECT } from './constants/Constants';
 import Project from './components/project';
 import Company from './components/company';
 
@@ -37,8 +37,13 @@ export default function App() {
     return (
         <>
             <Header changeContent={changeContent} />
-            <Box as="main" m="6" mt="20">
-                {content === PROFILE && <Profile profile={master.profile} />}
+            <Box as="main" m={{ base: '2', lg: '4' }} mt={{ base: '20', lg: '20' }}>
+                {content === PROFILE && (
+                    <Profile
+                        profile={master.profile}
+                        histories={master.histories}
+                    />
+                )}
                 {content === PROJECT && <Project projects={master.projects} />}
                 {content === COMPANY && (
                     <Company companies={master.companies} />

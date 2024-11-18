@@ -1,19 +1,25 @@
 export interface Master {
     profile: Profile;
+    histories: History[];
     projects: Project[];
     companies: Company[];
 }
 
-/** プロフィール */
-export interface Profile {
+/** プロフィールコンテンツ */
+export interface ProfileContent {
     id: number;
-    name: string;
-    university: string;
-    career: string;
-    hobbies: string;
-    qiita_url: string;
-    github_url: string;
-    future_goal: string;
+    title: string;
+    type: string;
+    content: string;
+}
+
+export interface History {
+    id: number;
+    title: string;
+    start_date: string;
+    url: string | null;
+    display_name: string | null;
+    summary: string;
 }
 
 /** プロジェクト */

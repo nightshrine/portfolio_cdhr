@@ -1,6 +1,6 @@
 import { Bindings } from '../definitions/bindings';
 import db from '../middleware/db';
-import { Master, Profile } from '../definitions/master';
+import { Master, ProfileContent } from '../definitions/master';
 
 /**
  * Master関連のサービス
@@ -12,9 +12,9 @@ export class MasterService {
      * @returns
      */
     public static async getInitMaster(env: Bindings): Promise<Master> {
-        const prisma = db(env);
         const master: Master = {
             profile: await MasterService.getProfile(env),
+            histories: await MasterService.getHistories(env),
             projects: await MasterService.getProjects(env),
             companies: await MasterService.getCompanies(env),
         };
@@ -26,14 +26,25 @@ export class MasterService {
      * @param env
      * @returns
      */
-    public static async getProfile(env: Bindings): Promise<Profile> {
+    public static async getProfile(env: Bindings): Promise<ProfileContent[]> {
         const prisma = db(env);
-        const profile: Profile | null = await prisma.profile.findFirst();
+        const profile: ProfileContent[] | null = await prisma.profileContent.findMany();
 
         if (!profile) {
             throw new Error('Profile not found');
         }
         return profile;
+    }
+
+    /**
+     * 経歴を取得
+     * @param env
+     * @returns
+     */
+    public static async getHistories(env: Bindings) {
+        const prisma = db(env);
+        const histories = await prisma.history.findMany();
+        return histories;
     }
 
     /**

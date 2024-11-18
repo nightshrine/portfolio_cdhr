@@ -1,26 +1,36 @@
 import { type Project } from '@/definitions/Master';
-import {
-    Box,
-    Card,
-    HStack,
-    SimpleGrid,
-    VStack,
-    Text,
-    Link,
-    List,
-} from '@chakra-ui/react';
+import { Card, GridItem, HStack, SimpleGrid, VStack } from '@chakra-ui/react';
 import { DataItem } from '../myui/DataItem';
+import { LinkItem } from '../myui/LinkItem';
 
 export default function Project({ projects }: { projects: Project[] }) {
+    /** LinkItemに渡せる形に変換*/
+    const projects_refrence_convert = projects.map((project) => {
+        const references = project.references.map((reference) => {
+            return {
+                url: reference.url,
+                display_name: reference.display_name,
+            };
+        });
+        return {
+            id: project.id,
+            name: project.name,
+            references: references,
+            summary: project.summary,
+            technologies: project.technologies,
+            result: project.result,
+        };
+    });
+
     return (
-        <SimpleGrid columns={3} gap="6">
-            {projects.map((project) => (
-                <Card.Root>
-                    <Card.Body>
-                        <HStack mb="6" gap="3" justify="center">
-                            <Card.Title>{project.name}</Card.Title>
-                        </HStack>
-                        <Card.Description>
+        <SimpleGrid columns={{ base: 1, lg: 3 }} gap="6">
+            {projects_refrence_convert.map((project) => (
+                <GridItem colSpan={{ base: 1, lg: 1 }} key={project.id}>
+                    <Card.Root>
+                        <Card.Body>
+                            <HStack mb="6" gap="3" justify="center">
+                                <Card.Title>{project.name}</Card.Title>
+                            </HStack>
                             <HStack
                                 mb="6"
                                 gap="3"
@@ -28,29 +38,10 @@ export default function Project({ projects }: { projects: Project[] }) {
                                 align="flex-start"
                             >
                                 <VStack align="start" gap="4">
-                                    <Box>
-                                        <Text
-                                            fontSize="lg"
-                                            fontWeight="bold"
-                                            color="gray.700"
-                                        >
-                                            参考URL
-                                        </Text>
-                                    </Box>
-                                    <List.Root>
-                                        {project.references.map((reference) => (
-                                            <List.Item>
-                                                <Link
-                                                    href={reference.url}
-                                                    color="blue.500"
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                >
-                                                    {reference.display_name}
-                                                </Link>
-                                            </List.Item>
-                                        ))}
-                                    </List.Root>
+                                    <LinkItem
+                                        label="参考URL"
+                                        links={project.references}
+                                    />
                                     <DataItem
                                         label="概要"
                                         value={project.summary}
@@ -65,9 +56,9 @@ export default function Project({ projects }: { projects: Project[] }) {
                                     />
                                 </VStack>
                             </HStack>
-                        </Card.Description>
-                    </Card.Body>
-                </Card.Root>
+                        </Card.Body>
+                    </Card.Root>
+                </GridItem>
             ))}
         </SimpleGrid>
     );

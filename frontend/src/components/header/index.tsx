@@ -1,6 +1,6 @@
 import { Box, Button, Flex } from '@chakra-ui/react';
 import { ColorModeButton } from '../ui/color-mode';
-import { COMPANY, PROFILE, PROJECT } from '@/constants/Contents';
+import { COMPANY, PROFILE, PROJECT } from '@/constants/Constants';
 
 export default function Header({
     changeContent,

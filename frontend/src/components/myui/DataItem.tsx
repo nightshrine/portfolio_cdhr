@@ -8,10 +8,10 @@ export const DataItem = ({
     value: string;
 }) => (
     <Box>
-        <Text fontSize="lg" fontWeight="bold" color="gray.700">
+        <Text fontSize="xl" fontWeight="bold">
             {label}
         </Text>
-        <Text fontSize="md" color="gray.500">
+        <Text fontSize="md">
             {value}
         </Text>
     </Box>

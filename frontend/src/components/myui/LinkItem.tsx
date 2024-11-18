@@ -1,23 +1,30 @@
-import { Box, Link, Text } from '@chakra-ui/react';
+import { Box, Link, List, Text } from '@chakra-ui/react';
+import { LuExternalLink } from 'react-icons/lu';
 
 export const LinkItem = ({
     label,
-    value,
+    links,
 }: {
     label: string;
-    value: string;
+    links: { url: string; display_name: string }[];
 }) => (
     <Box>
-        <Text fontSize="lg" fontWeight="bold" color="gray.700">
+        <Text fontSize="lg" fontWeight="bold">
             {label}
         </Text>
-        <Link
-            href={value}
-            color="blue.500"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            {value}
-        </Link>
+        <List.Root>
+            {links.map((link) => (
+                <List.Item key={link.url}>
+                    <Link
+                        href={link.url}
+                        color="blue.500"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        {link.display_name} <LuExternalLink />
+                    </Link>
+                </List.Item>
+            ))}
+        </List.Root>
     </Box>
 );

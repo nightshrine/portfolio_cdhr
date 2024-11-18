@@ -1,58 +1,46 @@
 import { type Profile } from '@/definitions/Master';
-import { Link } from '@chakra-ui/react';
-import { LuExternalLink } from 'react-icons/lu';
+import { Card, HStack, VStack } from '@chakra-ui/react';
+import { Avatar } from '../ui/avatar';
+import { Button } from '../ui/button';
+import { DataItem } from '../myui/DataItem';
+import { LinkItem } from '../myui/LinkItem';
 
 export default function Profile({ profile }: { profile: Profile }) {
     return (
-        <table>
-            <tbody>
-                <tr>
-                    <th>名前</th>
-                    <td>{profile.name}</td>
-                </tr>
-                <tr>
-                    <th>大学</th>
-                    <td>{profile.university}</td>
-                </tr>
-                <tr>
-                    <th>経歴</th>
-                    <td>{profile.career}</td>
-                </tr>
-                <tr>
-                    <th>趣味</th>
-                    <td>{profile.hobbies}</td>
-                </tr>
-                <tr>
-                    <th>Qiita</th>
-                    <td>
-                        <Link
-                            variant="underline"
-                            href={profile.qiita_url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            {profile.qiita_url} <LuExternalLink />
-                        </Link>
-                    </td>
-                </tr>
-                <tr>
-                    <th>GitHub</th>
-                    <td>
-                        <Link
-                            variant="underline"
-                            href={profile.github_url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            {profile.github_url} <LuExternalLink />
-                        </Link>
-                    </td>
-                </tr>
-                <tr>
-                    <th>将来の目標</th>
-                    <td>{profile.future_goal}</td>
-                </tr>
-            </tbody>
-        </table>
+        <Card.Root variant="outline" p="6">
+            <Card.Body>
+                <HStack mb="6" gap="3" justify="center">
+                    <Avatar
+                        src="myicon.png"
+                        name="山本隼輔のアイコン"
+                        width="48"
+                        height="48"
+                        boxShadow="0px 0px 30px 10px rgba(0, 0, 0, 0.3)"
+                    />
+                </HStack>
+                <Card.Description>
+                    <HStack mb="6" gap="3" justify="center" align="flex-start">
+                        <VStack align="start" gap="4">
+                            <DataItem label="名前" value={profile.name} />
+                            <DataItem label="大学" value={profile.university} />
+                            <DataItem label="経歴" value={profile.career} />
+                            <DataItem label="趣味" value={profile.hobbies} />
+                            <LinkItem label="Qiita" value={profile.qiita_url} />
+                            <LinkItem
+                                label="GitHub"
+                                value={profile.github_url}
+                            />
+                            <DataItem
+                                label="将来の目標"
+                                value={profile.future_goal}
+                            />
+                        </VStack>
+                    </HStack>
+                </Card.Description>
+            </Card.Body>
+            <Card.Footer justifyContent="flex-end">
+                <Button>Contact me</Button>
+            </Card.Footer>
+        </Card.Root>
     );
 }

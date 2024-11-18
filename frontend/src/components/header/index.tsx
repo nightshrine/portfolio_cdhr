@@ -18,7 +18,7 @@ export default function Header({
             zIndex="1000"
             boxShadow="md"
         >
-            <Flex align="center" justify="space-between" px="20" py="3">
+            <Flex align="center" justify="space-between" px="3" py="3">
                 <Button
                     fontSize="xl"
                     colorScheme="whiteAlpha"
@@ -28,7 +28,7 @@ export default function Header({
                     Profile
                 </Button>
 
-                <Flex gap="4">
+                <Flex gap="2">
                     <Button
                         colorScheme="whiteAlpha"
                         variant="outline"

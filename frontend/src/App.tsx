@@ -37,7 +37,7 @@ export default function App() {
     return (
         <>
             <Header changeContent={changeContent} />
-            <Box as="main" mt="20" px="20">
+            <Box as="main" m="6" mt="20">
                 {content === PROFILE && <Profile profile={master.profile} />}
                 {content === PROJECT && <Project projects={master.projects} />}
                 {content === COMPANY && (

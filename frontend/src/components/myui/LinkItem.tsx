@@ -1,4 +1,4 @@
-import { Box, Link, List, Text } from '@chakra-ui/react';
+import { Box, Link, Text } from '@chakra-ui/react';
 import { LuExternalLink } from 'react-icons/lu';
 
 export const LinkItem = ({
@@ -12,20 +12,17 @@ export const LinkItem = ({
         <Text fontSize="lg" fontWeight="bold">
             {label}
         </Text>
-        <List.Root>
-            {links.map((link) => (
-                <List.Item key={link.url}>
-                    <Link
-                        href={link.url}
-                        color="blue.500"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        tabIndex={-1}
-                    >
-                        {link.display_name} <LuExternalLink />
-                    </Link>
-                </List.Item>
-            ))}
-        </List.Root>
+        {links.map((link) => (
+            <Link
+                key={link.url}
+                href={link.url}
+                color="blue.500"
+                target="_blank"
+                rel="noopener noreferrer"
+                tabIndex={-1}
+            >
+                {link.display_name} <LuExternalLink />
+            </Link>
+        ))}
     </Box>
 );

@@ -84,10 +84,15 @@ export default function Project({ projects }: { projects: Project[] }) {
                                             align="flex-start"
                                         >
                                             <VStack align="start" gap="4">
-                                                <LinkItem
-                                                    label="参考URL"
-                                                    links={project.references}
-                                                />
+                                                {project.references.length >
+                                                    0 && (
+                                                    <LinkItem
+                                                        label="参考URL"
+                                                        links={
+                                                            project.references
+                                                        }
+                                                    />
+                                                )}
                                                 <DataItem
                                                     label="概要"
                                                     value={project.summary}

@@ -20,6 +20,7 @@ export const LinkItem = ({
                         color="blue.500"
                         target="_blank"
                         rel="noopener noreferrer"
+                        tabIndex={-1}
                     >
                         {link.display_name} <LuExternalLink />
                     </Link>

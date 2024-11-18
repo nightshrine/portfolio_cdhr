@@ -66,11 +66,11 @@ export default function Project({ projects }: { projects: Project[] }) {
                             </HStack>
                         </Card.Body>
                         <Card.Footer justifyContent="flex-end">
-                            <DialogRoot>
+                            <DialogRoot scrollBehavior="inside">
                                 <DialogTrigger asChild>
                                     <Button>Detail</Button>
                                 </DialogTrigger>
-                                <DialogContent height="80vh" maxW="80vw">
+                                <DialogContent height="60vh" maxW="90vw">
                                     <DialogHeader>
                                         <DialogTitle>
                                             {project.name}

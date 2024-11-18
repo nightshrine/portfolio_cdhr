@@ -8,6 +8,8 @@ import Profile from './components/profile';
 import { COMPANY, PROFILE, PROJECT } from './constants/Constants';
 import Project from './components/project';
 import Company from './components/company';
+import { Loading } from './components/myui/Loading';
+import { Error } from './components/myui/Error';
 
 export default function App() {
     const [content, setContent] = useState<string>(PROFILE);
@@ -17,15 +19,15 @@ export default function App() {
     });
 
     if (masterQueryResult.isLoading) {
-        return <div>Loading...</div>;
+        return <Loading />;
     }
 
     if (masterQueryResult.isError) {
-        return <div>Error</div>;
+        return <Error errorText="Master Query Error" />;
     }
 
     if (!masterQueryResult.data) {
-        return <div>Master Undifined</div>;
+        return <Error errorText="Master Data Undefined" />;
     }
 
     const master = masterQueryResult.data;
@@ -37,7 +39,7 @@ export default function App() {
     return (
         <>
             <Header changeContent={changeContent} />
-            <Box as="main" m='4' mt={{ base: '20', lg: '20' }}>
+            <Box as="main" m="4" mt={{ base: '20', lg: '20' }}>
                 {content === PROFILE && (
                     <Profile
                         profile={master.profile}

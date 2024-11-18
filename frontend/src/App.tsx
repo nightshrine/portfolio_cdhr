@@ -37,7 +37,7 @@ export default function App() {
     return (
         <>
             <Header changeContent={changeContent} />
-            <Box as="main" m={{ base: '2', lg: '4' }} mt={{ base: '20', lg: '20' }}>
+            <Box as="main" m='4' mt={{ base: '20', lg: '20' }}>
                 {content === PROFILE && (
                     <Profile
                         profile={master.profile}

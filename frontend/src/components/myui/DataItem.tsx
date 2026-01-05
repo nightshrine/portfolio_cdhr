@@ -7,11 +7,9 @@ export const DataItem = ({
     label: string;
     value: string;
 }) => (
-    <Box>
-        <Text fontSize="xl" fontWeight="bold">
-            {label}
-        </Text>
-        <Text fontSize="md">
+    <Box className="info-block">
+        <Text className="info-label">{label}</Text>
+        <Text className="info-value" whiteSpace="normal" wordBreak="break-word">
             {value}
         </Text>
     </Box>

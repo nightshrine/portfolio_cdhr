@@ -1,15 +1,15 @@
-import './App.css';
-import { useQuery } from '@tanstack/react-query';
-import { MasterService } from './services/MasterService';
-import Header from './components/header';
-import { useState } from 'react';
 import { Box } from '@chakra-ui/react';
-import Profile from './components/profile';
-import { COMPANY, PROFILE, PROJECT } from './constants/Constants';
-import Project from './components/project';
+import { useQuery } from '@tanstack/react-query';
+import { useState } from 'react';
+import './App.css';
 import Company from './components/company';
-import { Loading } from './components/myui/Loading';
+import Header from './components/header';
 import { Error } from './components/myui/Error';
+import { Loading } from './components/myui/Loading';
+import Profile from './components/profile';
+import Project from './components/project';
+import { COMPANY, PROFILE, PROJECT } from './constants/Constants';
+import { MasterService } from './services/MasterService';
 
 export default function App() {
     const [content, setContent] = useState<string>(PROFILE);
@@ -37,9 +37,10 @@ export default function App() {
     };
 
     return (
-        <>
-            <Header changeContent={changeContent} />
-            <Box as="main" m="4" mt={{ base: '20', lg: '20' }}>
+        <Box className="app-shell">
+            <div className="grid-backdrop" aria-hidden />
+            <Header changeContent={changeContent} currentContent={content} />
+            <Box as="main" className="content-shell">
                 {content === PROFILE && (
                     <Profile
                         profile={master.profile}
@@ -51,6 +52,6 @@ export default function App() {
                     <Company companies={master.companies} />
                 )}
             </Box>
-        </>
+        </Box>
     );
 }

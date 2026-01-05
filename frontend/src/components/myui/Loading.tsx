@@ -1,7 +1,13 @@
 import { Box, Spinner, Text, VStack } from '@chakra-ui/react';
 
 export const Loading = () => (
-    <Box display="flex" justifyContent="center" alignItems="center" h="100vh">
+    <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        h="100vh"
+        className="loading-shell"
+    >
         <VStack colorPalette="teal">
             <Spinner color="teal.500" size="xl" />
             <Text color="teal.500" fontSize="xl">

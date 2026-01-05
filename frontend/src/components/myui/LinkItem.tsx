@@ -8,15 +8,13 @@ export const LinkItem = ({
     label: string;
     links: { url: string; display_name: string }[];
 }) => (
-    <Box>
-        <Text fontSize="lg" fontWeight="bold">
-            {label}
-        </Text>
+    <Box className="link-block">
+        <Text className="info-label">{label}</Text>
         {links.map((link) => (
             <Link
                 key={link.url}
                 href={link.url}
-                color="blue.500"
+                color="whiteAlpha.900"
                 target="_blank"
                 rel="noopener noreferrer"
                 tabIndex={-1}

@@ -20,7 +20,7 @@ export default function Header({
             className="nav-shell"
         >
             <Flex align="center" justify="space-between" px="5" py="4">
-                <HStack spacing="3" cursor="pointer">
+                <HStack gap="3" cursor="pointer">
                     <Box
                         width="12px"
                         height="12px"
@@ -39,7 +39,7 @@ export default function Header({
                     </Text>
                 </HStack>
 
-                <HStack spacing="2">
+                <HStack gap="2">
                     <Button
                         colorScheme="whiteAlpha"
                         variant="outline"

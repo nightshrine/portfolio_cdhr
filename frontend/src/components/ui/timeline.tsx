@@ -11,7 +11,7 @@ export const TimelineRoot = React.forwardRef<HTMLDivElement, TimelineRootProps>(
             <VStack
                 ref={ref}
                 align="stretch"
-                spacing="0"
+                gap="0"
                 position="relative"
                 _before={{
                     content: '""',
@@ -37,12 +37,12 @@ export interface TimelineItemProps {
 }
 
 export const TimelineItem = React.forwardRef<HTMLDivElement, TimelineItemProps>(
-    function TimelineItem({ children, isLast = false }, ref) {
+    function TimelineItem({ children }, ref) {
         return (
             <HStack
                 ref={ref}
                 align="flex-start"
-                spacing="4"
+                gap="4"
                 position="relative"
             >
                 {children}

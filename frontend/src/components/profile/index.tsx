@@ -194,7 +194,7 @@ export default function Profile({
                                                     p="4"
                                                     borderRadius="md"
                                                     transition="all 0.2s"
-                                                    spacing="2"
+                                                    gap="2"
                                                     _dark={{
                                                         bg: 'whiteAlpha.100',
                                                         borderTop: '1px solid',

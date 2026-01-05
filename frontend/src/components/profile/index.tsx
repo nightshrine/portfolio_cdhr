@@ -21,6 +21,16 @@ import {
     TimelineRoot,
 } from '../ui/timeline';
 
+// URLから最初の/の右の部分だけを取得（例：https://github.com/nightshrine → nightshrine）
+const extractUrlDisplay = (url: string): string => {
+    // プロトコル部分を削除（https://github.com/nightshrine → github.com/nightshrine）
+    const withoutProtocol = url.replace(/^https?:\/\//, '');
+    // 最初の/の後の部分を取得（github.com/nightshrine → nightshrine）
+    const parts = withoutProtocol.split('/');
+    // 2番目の要素を返す（最初のスラッシュの後）、なければ最後の要素を返す
+    return parts[1] || parts[0] || url;
+};
+
 export default function Profile({
     profile,
     histories,
@@ -98,7 +108,11 @@ export default function Profile({
                             justify="center"
                             align="flex-start"
                         >
-                            <VStack align="start" gap="4">
+                            <Grid
+                                gridTemplateColumns="1fr"
+                                gap="4"
+                                width="100%"
+                            >
                                 {profile.map((profileContent) => {
                                     if (profileContent.type === TEXT) {
                                         return (
@@ -117,7 +131,9 @@ export default function Profile({
                                                     {
                                                         url: profileContent.content,
                                                         display_name:
-                                                            profileContent.content,
+                                                            extractUrlDisplay(
+                                                                profileContent.content
+                                                            ),
                                                     },
                                                 ]}
                                             />
@@ -126,7 +142,7 @@ export default function Profile({
                                         return;
                                     }
                                 })}
-                            </VStack>
+                            </Grid>
                         </HStack>
                         <VStack gap="4" pt="4">
                             <Button width="100%">

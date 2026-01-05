@@ -19,7 +19,12 @@ export default function Header({
             zIndex="1000"
             className="nav-shell"
         >
-            <Flex align="center" justify="space-between" px="5" py="4">
+            <Flex
+                align="center"
+                justify="space-between"
+                px={{ base: '3', md: '5' }}
+                py="4"
+            >
                 <HStack gap="3" cursor="pointer">
                     <Box
                         width="12px"
@@ -39,10 +44,11 @@ export default function Header({
                     </Text>
                 </HStack>
 
-                <HStack gap="2">
+                <HStack gap={{ base: '1', md: '2' }}>
                     <Button
                         colorScheme="whiteAlpha"
                         variant="outline"
+                        size={{ base: 'sm', md: 'md' }}
                         borderColor={
                             currentContent === PROJECT
                                 ? 'whiteAlpha.900'
@@ -79,6 +85,7 @@ export default function Header({
                     <Button
                         colorScheme="whiteAlpha"
                         variant="outline"
+                        size={{ base: 'sm', md: 'md' }}
                         borderColor={
                             currentContent === COMPANY
                                 ? 'whiteAlpha.900'

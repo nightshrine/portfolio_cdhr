@@ -137,15 +137,6 @@ export default function Project({ projects }: { projects: Project[] }) {
                                         scrollbarWidth: 'none',
                                         msOverflowStyle: 'none',
                                     }}
-                                    borderTopColor="green.400"
-                                    borderRadius="24px"
-                                    css={{
-                                        '&::-webkit-scrollbar': {
-                                            display: 'none',
-                                        },
-                                        scrollbarWidth: 'none',
-                                        msOverflowStyle: 'none',
-                                    }}
                                 >
                                     <DialogHeader
                                         borderBottom="1px solid"

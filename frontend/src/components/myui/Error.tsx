@@ -2,7 +2,13 @@ import { Box, Icon, Text, VStack } from '@chakra-ui/react';
 import { MdError } from 'react-icons/md';
 
 export const Error = ({ errorText }: { errorText: string }) => (
-    <Box display="flex" justifyContent="center" alignItems="center" h="100vh">
+    <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        h="100vh"
+        className="error-shell"
+    >
         <VStack colorPalette="red">
             {/* TODO: なぜかIcon表示時にエラーが出る。Warningなので一旦無視 */}
             <Icon fontSize="6xl" color="red.500">

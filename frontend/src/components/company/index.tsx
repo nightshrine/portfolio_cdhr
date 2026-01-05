@@ -8,10 +8,27 @@ export default function Company({ companies }: { companies: Company[] }) {
         <SimpleGrid columns={{ base: 1, lg: 2 }} gap="6">
             {companies.map((company) => (
                 <GridItem colSpan={{ base: 1, lg: 1 }} key={company.id}>
-                    <Card.Root>
+                    <Card.Root
+                        className="panel-card fade-up company-card"
+                        bg="whiteAlpha.50"
+                        _light={{
+                            bg: 'white',
+                        }}
+                        _hover={{
+                            shadow: 'md',
+                        }}
+                        transition="all 0.2s"
+                    >
                         <Card.Body>
                             <HStack mb="6" gap="3" justify="center">
-                                <Card.Title>{company.name}</Card.Title>
+                                <Card.Title
+                                    fontSize="lg"
+                                    color="whiteAlpha.900"
+                                    _dark={{ color: 'whiteAlpha.900' }}
+                                    _light={{ color: 'gray.900' }}
+                                >
+                                    {company.name}
+                                </Card.Title>
                             </HStack>
                             <HStack
                                 mb="6"

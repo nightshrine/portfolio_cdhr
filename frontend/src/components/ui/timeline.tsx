@@ -39,12 +39,7 @@ export interface TimelineItemProps {
 export const TimelineItem = React.forwardRef<HTMLDivElement, TimelineItemProps>(
     function TimelineItem({ children }, ref) {
         return (
-            <HStack
-                ref={ref}
-                align="flex-start"
-                gap="4"
-                position="relative"
-            >
+            <HStack ref={ref} align="flex-start" gap="4" position="relative">
                 {children}
             </HStack>
         );

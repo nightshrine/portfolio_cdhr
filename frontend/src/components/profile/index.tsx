@@ -312,8 +312,8 @@ export default function Profile({
                                                     letterSpacing="2px"
                                                     my="6"
                                                 >
-                                                    ・ ・ ・ いろいろありまして
-                                                    ・ ・ ・
+                                                    ・・・ いろいろありまして
+                                                    ・・・
                                                 </Text>
                                                 <Button
                                                     borderRadius="full"

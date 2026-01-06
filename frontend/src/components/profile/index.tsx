@@ -87,9 +87,9 @@ export default function Profile({
                             <Avatar
                                 src="myicon.png"
                                 name="山本隼輔のアイコン"
-                                width="48"
-                                height="48"
-                                boxShadow="0px 0px 30px 5px rgba(255, 255, 255, 0.08)"
+                                width="56"
+                                height="56"
+                                boxShadow="0 0 0 6px rgba(99, 102, 241, 0.18), 0 0 40px rgba(14, 165, 233, 0.25)"
                             />
                         </HStack>
                         <HStack mb="6" gap="3" justify="center">
@@ -145,7 +145,11 @@ export default function Profile({
                             </Grid>
                         </HStack>
                         <VStack gap="4" pt="4">
-                            <Button width="100%">
+                            <Button
+                                width="100%"
+                                className="glow-button"
+                                variant="outline"
+                            >
                                 <a href={`mailto:${MAIL_ADDRESS}`}>
                                     Contact me
                                 </a>
@@ -204,50 +208,48 @@ export default function Profile({
                                             </TimelineIndicator>
                                             <TimelineContent width="100%">
                                                 <VStack
+                                                    className="timeline-card"
                                                     align="start"
                                                     width="100%"
-                                                    bg="whiteAlpha.100"
                                                     p="4"
                                                     borderRadius="md"
-                                                    transition="all 0.2s"
+                                                    transition="all 0.24s ease"
                                                     gap="2"
                                                     _dark={{
-                                                        bg: 'whiteAlpha.100',
                                                         borderTop: '1px solid',
                                                         borderTopColor:
-                                                            'whiteAlpha.400',
+                                                            'rgba(255,255,255,0.18)',
                                                         borderRight:
                                                             '1px solid',
                                                         borderRightColor:
-                                                            'whiteAlpha.400',
+                                                            'rgba(255,255,255,0.16)',
                                                         borderBottom:
                                                             '1px solid',
                                                         borderBottomColor:
-                                                            'whiteAlpha.400',
+                                                            'rgba(255,255,255,0.12)',
                                                         borderLeft: '3px solid',
                                                         borderLeftColor:
-                                                            'blue.400',
+                                                            'rgb(99,102,241)',
                                                     }}
                                                     _light={{
-                                                        bg: 'white',
                                                         borderTop: '1px solid',
                                                         borderTopColor:
-                                                            'gray.300',
+                                                            'rgba(0,0,0,0.16)',
                                                         borderRight:
                                                             '1px solid',
                                                         borderRightColor:
-                                                            'gray.300',
+                                                            'rgba(0,0,0,0.14)',
                                                         borderBottom:
                                                             '1px solid',
                                                         borderBottomColor:
-                                                            'gray.300',
+                                                            'rgba(0,0,0,0.12)',
                                                         borderLeft: '3px solid',
                                                         borderLeftColor:
-                                                            'blue.500',
+                                                            'rgb(109,40,217)',
                                                     }}
                                                 >
                                                     <Badge
-                                                        colorScheme="blue"
+                                                        colorScheme="purple"
                                                         variant="subtle"
                                                         fontSize="xs"
                                                     >

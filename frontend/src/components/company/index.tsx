@@ -1,5 +1,12 @@
 import { type Company } from '@/definitions/Master';
-import { Button, Card, GridItem, HStack, SimpleGrid, VStack } from '@chakra-ui/react';
+import {
+    Button,
+    Card,
+    GridItem,
+    HStack,
+    SimpleGrid,
+    VStack,
+} from '@chakra-ui/react';
 import { DataItem } from '../myui/DataItem';
 import { LinkItem } from '../myui/LinkItem';
 import {

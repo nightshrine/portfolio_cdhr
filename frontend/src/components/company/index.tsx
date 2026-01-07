@@ -36,7 +36,7 @@ export default function Company({ companies }: { companies: Company[] }) {
                         transition="all 0.2s"
                     >
                         <Card.Body>
-                            <HStack mb="6" gap="3" justify="center">
+                            <HStack mb="6" gap="3" justify="start">
                                 <Card.Title
                                     fontSize="lg"
                                     color="whiteAlpha.900"
@@ -49,7 +49,7 @@ export default function Company({ companies }: { companies: Company[] }) {
                             <HStack
                                 mb="6"
                                 gap="3"
-                                justify="center"
+                                justify="start"
                                 align="flex-start"
                             >
                                 <VStack align="start" gap="4">

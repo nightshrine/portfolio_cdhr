@@ -21,14 +21,12 @@ import {
     TimelineRoot,
 } from '../ui/timeline';
 
-// URLから最初の/の右の部分だけを取得（例：https://github.com/nightshrine → nightshrine）
+// URLから最初の/の右の部分だけを取得し、最大20文字に切り詰める
 const extractUrlDisplay = (url: string): string => {
-    // プロトコル部分を削除（https://github.com/nightshrine → github.com/nightshrine）
     const withoutProtocol = url.replace(/^https?:\/\//, '');
-    // 最初の/の後の部分を取得（github.com/nightshrine → nightshrine）
     const parts = withoutProtocol.split('/');
-    // 2番目の要素を返す（最初のスラッシュの後）、なければ最後の要素を返す
-    return parts[1] || parts[0] || url;
+    const display = parts[1] || parts[0] || url;
+    return display.length > 20 ? display.slice(0, 20) + '…' : display;
 };
 
 export default function Profile({
